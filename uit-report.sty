@@ -32,6 +32,8 @@
 % TikZ cho khung trang bìa
 \RequirePackage{tikz}
 \usetikzlibrary{calc}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 % Tiêu đề chương/mục
 \RequirePackage{titlesec}
@@ -45,6 +47,22 @@
 
 % Mã nguồn
 \RequirePackage{listings}
+\lstdefinelanguage{yaml}{
+  sensitive=false,
+  morecomment=[l]{\#},
+  morestring=[b]",
+  morestring=[b]',
+  alsoletter={-},
+  morekeywords={apiVersion,kind,metadata,name,namespace,spec,scaleTargetRef,minReplicaCount,maxReplicaCount,pollingInterval,cooldownPeriod,triggers,type,aws-sqs-queue,queueURL,awsRegion,queueLength,authenticationRef}
+}
+\lstdefinelanguage{bash}{
+  sensitive=true,
+  morecomment=[l]{\#},
+  morestring=[b]",
+  morestring=[b]',
+  alsoletter={-},
+  morekeywords={kubectl,cd,ls,curl,grep,echo}
+}
 \lstset{
   basicstyle=\ttfamily\small,
   breaklines=true,
@@ -69,9 +87,8 @@
 
 % ==================== BIBLIOGRAPHY (biblatex) ====================
 \RequirePackage[autostyle=false, style=english]{csquotes}
-\RequirePackage[maxcitenames=2, mincitenames=1, backend=biber,
-  sorting=none, bibencoding=utf8, natbib=true, maxbibnames=99,
-  refsection=chapter, defernumbers=true]{biblatex}
+\RequirePackage[maxcitenames=2, mincitenames=1, backend=bibtex,
+  sorting=none, bibencoding=utf8, natbib=true, maxbibnames=99]{biblatex}
 \DeclareLanguageMapping{vietnamese}{english}
 \DefineBibliographyStrings{vietnamese}{andothers={và các cộng sự}}
 

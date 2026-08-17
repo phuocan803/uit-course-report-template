@@ -1,12 +1,9 @@
 \documentclass[12pt, a4paper]{report}
 
 \usepackage{uit-report}
-% Tài liệu tham khảo mỗi chương — thêm entry vào file refs.bib tương ứng
-\addbibresource{references/chapter1/refs.bib}
-\addbibresource{references/chapter2/refs.bib}
-\addbibresource{references/chapter3/refs.bib}
-\addbibresource{references/chapter4/refs.bib}
-\addbibresource{references/chapter5/refs.bib}
+\usepackage{url}
+\urlstyle{tt}
+\addbibresource{references/references.bib}
 
 % ============================================================
 \begin{document}
@@ -27,6 +24,8 @@
 \fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
 
 % Danh mục hình ảnh
+\begingroup
+\renewcommand*{\addvspace}[1]{}
 \phantomsection
 \addcontentsline{toc}{chapter}{DANH MỤC HÌNH ẢNH}
 \listoffigures
@@ -47,35 +46,36 @@
 \addcontentsline{toc}{chapter}{DANH MỤC MÃ NGUỒN}
 \lstlistoflistings
 \clearpage
+\endgroup
 
 % ==================== NỘI DUNG CHÍNH (ARABIC) ====================
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-\chapter{GIỚI THIỆU ĐỀ TÀI}
-\label{c:gioithieu}
+\chapter{TỔNG QUAN ĐỀ TÀI}
+\label{c:tongquan}
 \input{chapters/chapter1}
-\begingroup\setlength{\emergencystretch}{8em}\printbibliography[heading=chapterbib, title=Tài liệu tham khảo]\endgroup
 
-\chapter{CƠ SỞ LÝ THUYẾT}
-\label{c:cosolythuyet}
+\chapter{NỘI DUNG THỰC HIỆN}
+\label{c:noidung}
 \input{chapters/chapter2}
-\begingroup\setlength{\emergencystretch}{8em}\printbibliography[heading=chapterbib, title=Tài liệu tham khảo]\endgroup
 
-\chapter{PHƯƠNG PHÁP LUẬN}
-\label{c:kientruc}
-\input{chapters/chapter3}
-\begingroup\setlength{\emergencystretch}{8em}\printbibliography[heading=chapterbib, title=Tài liệu tham khảo]\endgroup
-
-\chapter{TRIỂN KHAI VÀ KIỂM THỬ HỆ THỐNG}
+\chapter{TRIỂN KHAI VÀ KIỂM THỬ}
 \label{c:trienkhai}
-\input{chapters/chapter4}
-\begingroup\setlength{\emergencystretch}{8em}\printbibliography[heading=chapterbib, title=Tài liệu tham khảo]\endgroup
+\input{chapters/chapter3}
 
-\chapter{ĐÁNH GIÁ VÀ HƯỚNG PHÁT TRIỂN}
+\chapter{CÁC NGHIÊN CỨU LIÊN QUAN}
+\label{c:lienquan}
+\input{chapters/chapter4}
+
+\chapter{ĐÁNH GIÁ VÀ KẾT LUẬN}
 \label{c:danhgia}
 \input{chapters/chapter5}
-\begingroup\setlength{\emergencystretch}{8em}\printbibliography[heading=chapterbib, title=Tài liệu tham khảo]\endgroup
+\clearpage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{DANH MỤC TÀI LIỆU THAM KHẢO}
+\begingroup\setlength{\emergencystretch}{8em}\printbibliography[title=DANH MỤC TÀI LIỆU THAM KHẢO]\endgroup
 \clearpage
 
 % ==================== PHỤ LỤC ====================
@@ -87,6 +87,6 @@
 \addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{PHỤ LỤC }}
 \input{appendix/appendix_a}
 \input{appendix/appendix_b}
-\input{appendix/appendix_c}
+% \input{appendix/appendix_c}
 
 \end{document}

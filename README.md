@@ -3,7 +3,7 @@
     <img src="img/logo/logo_uit_20-02.png" alt="HCMUIT Logo" width="300" />
   </a>
 
-  <h3>HCMUIT Course Report Template</h3>
+  <h3>UIT Course Report Template</h3>
 
   <p>
     A free LaTeX template for end-of-semester course reports at UIT —<br/>
